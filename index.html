@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kingsley Kelechi | Kinetic Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#001c39",
+                        "surface-container-highest": "#2c3641",
+                        "inverse-on-surface": "#28313d",
+                        "background": "#0a141e",
+                        "on-tertiary": "#003822",
+                        "on-primary": "#282f4a",
+                        "surface-container-lowest": "#050f19",
+                        "on-primary-fixed": "#131a34",
+                        "tertiary-fixed-dim": "#42e09a",
+                        "secondary-container": "#006ec5",
+                        "surface-bright": "#303a46",
+                        "surface-container-low": "#131c27",
+                        "surface-container": "#17202b",
+                        "on-surface": "#d9e3f2",
+                        "on-primary-fixed-variant": "#3f4662",
+                        "on-error": "#690005",
+                        "outline": "#909098",
+                        "outline-variant": "#46464d",
+                        "primary": "#bec5e7",
+                        "tertiary": "#42e09a",
+                        "on-background": "#d9e3f2",
+                        "inverse-primary": "#565d7a",
+                        "on-tertiary-container": "#008959",
+                        "tertiary-container": "#000803",
+                        "surface-tint": "#bec5e7",
+                        "on-secondary-fixed-variant": "#004883",
+                        "secondary": "#a3c9ff",
+                        "on-surface-variant": "#c6c6ce",
+                        "secondary-fixed-dim": "#a3c9ff",
+                        "on-secondary-container": "#eaf0ff",
+                        "error-container": "#93000a",
+                        "on-error-container": "#ffdad6",
+                        "surface-variant": "#2c3641",
+                        "primary-container": "#00041d",
+                        "on-secondary": "#00315d",
+                        "surface-container-high": "#212b36",
+                        "error": "#ffb4ab",
+                        "surface": "#0a141e",
+                        "surface-dim": "#0a141e",
+                        "tertiary-fixed": "#65fdb5",
+                        "on-tertiary-fixed-variant": "#005233",
+                        "primary-fixed-dim": "#bec5e7",
+                        "secondary-fixed": "#d3e3ff",
+                        "inverse-surface": "#d9e3f2",
+                        "on-tertiary-fixed": "#002112",
+                        "primary-fixed": "#dce1ff",
+                        "on-primary-container": "#6f7695"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "margin-mobile": "24px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "bento-gap": "24px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-xl": ["Inter"],
+                        "headline-xl-mobile": ["Inter"],
+                        "display-2xl": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "160%", "fontWeight": "400" }],
+                        "label-mono": ["12px", { "lineHeight": "100%", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "headline-xl": ["48px", { "lineHeight": "120%", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-xl-mobile": ["36px", { "lineHeight": "120%", "fontWeight": "700" }],
+                        "display-2xl": ["120px", { "lineHeight": "110%", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "body-lg": ["20px", { "lineHeight": "180%", "fontWeight": "400" }],
+                        "display-lg": ["72px", { "lineHeight": "110%", "letterSpacing": "-0.03em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #00041d;
+            color: #d9e3f2;
+            overflow-x: hidden;
+            scroll-behavior: smooth
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1)
+        }
+
+        .parallax-target {
+            transition: transform 0.2s ease-out;
+            transform-style: preserve-3d
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            animation: marquee 30s linear infinite
+        }
+
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAdM1Boy2q81W2yjIqMKlxe1mC1T_rriCsJSCDyXhywc5kOSoJe_9rETphlqmFpf99vMrjaE4a361JbGc8rhbgiv0Ym9F6Zp9kKPPhFNHQ7uFl2H2G8SIXY7BC94No6Ao9NbKwxmL6b5KkTUNHOfiU8IeH6HVDhoXzVlYbJBuNRzVQ-8xKu5EIveFW-1PazHIWczdu2vXZ8MQL1VPkmYTpV7T695oUOOE5cVGW7JBmrT8VxjsvVkUyKk3uuC9HHUXeJb11kOu8sCk4)
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translatey(30px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)
+        }
+
+        .scroll-reveal.active {
+            opacity: 1;
+            transform: translatey(0)
+        }
+
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: #a3c9ff;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            mix-blend-mode: difference;
+            transition: transform 0.2s
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16/9
+        }
+    </style>
+</head>
+<body class="font-body-md selection:bg-secondary selection:text-on-secondary">
+    <div class="film-grain"></div>
+    <div class="custom-cursor hidden md:block" id="cursor"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-[1000] flex justify-between items-center px-6 md:px-8 py-4 bg-surface/60 backdrop-blur-xl rounded-full mt-6 mx-auto w-[95%] md:w-[90%] max-w-7xl border border-white/10 shadow-2xl transition-transform duration-400 ease-out">
+        <div class="font-headline-xl text-2xl md:text-headline-xl font-bold text-on-surface tracking-tighter">Kingsley Kelechi</div>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="text-primary font-bold border-b border-primary pb-1 hover:scale-105 transition-all" href="#work">Work</a>
+            <a class="text-on-surface-variant font-body-md hover:text-on-surface hover:scale-105 transition-all" href="#services">Services</a>
+            <a class="text-on-surface-variant font-body-md hover:text-on-surface hover:scale-105 transition-all" href="#about">About</a>
+            <a class="text-on-surface-variant font-body-md hover:text-on-surface hover:scale-105 transition-all" href="#contact">Contact</a>
+        </div>
+        <!-- Fully functional Call/Discovery link, hidden on very small mobile to prevent overlap, or scaled down -->
+        <a href="https://calendly.com/" target="_blank" class="bg-primary text-on-primary font-bold px-4 md:px-6 py-2 md:py-3 text-sm md:text-base rounded-full hover:scale-105 active:scale-95 transition-all hidden sm:block">Book Discovery Call</a>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center pt-32 pb-16 md:pb-0 overflow-hidden px-6 md:px-margin-desktop">
+        <!-- Changed to a 12-col grid to expand image space and shrink text space -->
+        <div class="relative grid md:grid-cols-12 gap-8 md:gap-12 w-full max-w-7xl mx-auto z-10">
+            <div class="md:col-span-5 flex flex-col justify-center space-y-6">
+                <span class="font-label-mono text-label-mono text-secondary tracking-widest uppercase">Motion Designer</span>
+                <!-- Font size reduced from display-2xl to display-lg on desktop -->
+                <h1 class="font-display-lg text-headline-xl md:text-display-lg text-on-surface leading-none">Motion Graphics That Don't Just Look Good. <span class="text-secondary">They Sell.</span></h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">High-performance visual storytelling for SaaS, AI, and Web3 leaders. I turn complex products into cinematic conversion engines.</p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#work" class="bg-secondary text-on-secondary-fixed font-bold px-8 py-4 rounded-xl hover:scale-105 transition-all shadow-xl shadow-secondary/20 text-center">View Selected Work</a>
+                    <a href="https://calendly.com/" target="_blank" class="border border-white/20 bg-white/5 backdrop-blur-md text-on-surface font-bold px-8 py-4 rounded-xl hover:bg-white/10 transition-all text-center">Book Discovery Call</a>
+                </div>
+            </div>
+            
+            <!-- Image expanded slightly by taking 7 columns instead of equal split -->
+            <div class="md:col-span-7 relative flex items-center justify-center perspective-1000 mt-12 md:mt-0">
+                <div class="parallax-target glass-card w-full aspect-video rounded-3xl overflow-hidden shadow-2xl relative z-20" id="hero-mockup">
+                    <img class="w-full h-full object-cover" data-alt="A futuristic cinematic motion graphics reel playing on a sleek floating digital device mockup with curved edges." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAygkOw-UKgiBNGVCko5mayOUktI0AGfvgEtFtnZ06gYAnRsQkXMxKfjg0MsqygsFPlJbYPbOvt6hQyWv85dMQOpqIVF_vBlUgi0X1gsjL2_Vram95mSDn2yIZvHGPZt1OxeE4fYLVviRMyDy03Yhygcwb0ZzJFTaGNOxpkI6npAKuNRsY6zg2EkH6e9-qhPZZWn307X2CLb8yrJp4f3CInYCOZ_kFJTbQ6WoYRlBR1-9z2hO7rLy9hOUfdM80OWm4ZS3dDtHwB4Y0" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+                </div>
+                <div class="absolute -z-10 w-[120%] h-[120%] bg-secondary/10 blur-[120px] rounded-full"></div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Marquee -->
+    <section class="py-12 bg-surface-container-low overflow-hidden border-y border-white/5">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <div class="flex gap-12 items-center px-6">
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">Motion</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">SaaS</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">Fintech</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">AI</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">Web3</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">Product Launches</span>
+            </div>
+            <!-- Duplicated for seamless loop -->
+            <div class="flex gap-12 items-center px-6">
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">Motion</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">SaaS</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">Fintech</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">AI</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">Web3</span>
+                <span class="text-secondary">•</span>
+                <span class="font-display-lg text-headline-xl-mobile md:text-headline-xl text-on-surface-variant/20 uppercase">Product Launches</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Projects / All 4 Links Embedded Sequentially -->
+    <section class="py-16 md:py-32" id="work">
+        <div class="px-6 md:px-margin-desktop mb-12 md:mb-24">
+            <span class="font-label-mono text-label-mono text-secondary tracking-widest uppercase block mb-4">Case Studies</span>
+            <h2 class="font-display-lg text-headline-xl md:text-display-lg text-on-surface">Selected Movements</h2>
+        </div>
+        
+        <!-- Project 1 (Link 1 - 1202045433) -->
+        <div class="flex items-center mb-16 md:mb-32 px-6 md:px-margin-desktop py-12 md:py-0 md:min-h-screen">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center w-full">
+                <div class="md:col-span-7 rounded-3xl overflow-hidden glass-card scroll-reveal w-full">
+                    <div class="video-container">
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1202045433?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                    </div>
+                </div>
+                <div class="md:col-span-5 space-y-6 scroll-reveal">
+                    <span class="inline-block px-4 py-1 rounded-full bg-secondary/20 text-secondary font-label-mono">BRANDING</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl">Abstract Motion Identity</h3>
+                    <p class="text-on-surface-variant text-body-lg">Elevating brand perception through physical simulations and procedural light dynamics.</p>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <span class="text-secondary font-bold text-headline-xl-mobile md:text-headline-xl block">120%</span>
+                        <span class="text-on-surface-variant font-label-mono uppercase">Engagement Boost</span>
+                    </div>
+                    <button class="flex items-center gap-4 text-on-surface font-bold group">
+                        View Case Study
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project 2 (Link 2 - 1091721901) -->
+        <div class="flex items-center mb-16 md:mb-32 px-6 md:px-margin-desktop py-12 md:py-0 md:min-h-screen">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center w-full">
+                <div class="md:col-span-5 space-y-6 order-2 md:order-1 scroll-reveal">
+                    <span class="inline-block px-4 py-1 rounded-full bg-tertiary/20 text-tertiary font-label-mono">AI INFRASTRUCTURE</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl">Synthetix Core Explainer</h3>
+                    <p class="text-on-surface-variant text-body-lg">Communicating complex liquid restaking mechanics through ethereal 3D motion and high-fidelity UI animation.</p>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <span class="text-tertiary font-bold text-headline-xl-mobile md:text-headline-xl block">15%</span>
+                        <span class="text-on-surface-variant font-label-mono uppercase">Increase in conversion</span>
+                    </div>
+                    <button class="flex items-center gap-4 text-on-surface font-bold group">
+                        View Case Study
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="md:col-span-7 rounded-3xl overflow-hidden glass-card order-1 md:order-2 scroll-reveal w-full">
+                    <div class="video-container">
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1091721901?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 (Link 3 - 1096552159) -->
+        <div class="flex items-center mb-16 md:mb-32 px-6 md:px-margin-desktop py-12 md:py-0 md:min-h-screen">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center w-full">
+                <div class="md:col-span-7 rounded-3xl overflow-hidden glass-card scroll-reveal w-full">
+                    <div class="video-container">
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1096552159?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                    </div>
+                </div>
+                <div class="md:col-span-5 space-y-6 scroll-reveal">
+                    <span class="inline-block px-4 py-1 rounded-full bg-secondary/20 text-secondary font-label-mono">PRODUCT MOTION</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl">SaaS Dashboard Reel</h3>
+                    <p class="text-on-surface-variant text-body-lg">Translating robust analytics and feature sets into a dynamic, easy-to-digest cinematic sequence.</p>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <span class="text-secondary font-bold text-headline-xl-mobile md:text-headline-xl block">3x</span>
+                        <span class="text-on-surface-variant font-label-mono uppercase">Faster Onboarding</span>
+                    </div>
+                    <button class="flex items-center gap-4 text-on-surface font-bold group">
+                        View Case Study
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4 (Link 4 - 1058706002) -->
+        <div class="flex items-center mb-16 md:mb-32 px-6 md:px-margin-desktop py-12 md:py-0 md:min-h-screen">
+            <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center w-full">
+                <div class="md:col-span-5 space-y-6 order-2 md:order-1 scroll-reveal">
+                    <span class="inline-block px-4 py-1 rounded-full bg-tertiary/20 text-tertiary font-label-mono">FINTECH</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl">Ledger Nano X Launch</h3>
+                    <p class="text-on-surface-variant text-body-lg">Product-first storytelling emphasizing security and tangibility in a digital world.</p>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                        <span class="text-tertiary font-bold text-headline-xl-mobile md:text-headline-xl block">2M+</span>
+                        <span class="text-on-surface-variant font-label-mono uppercase">Social Impressions</span>
+                    </div>
+                    <button class="flex items-center gap-4 text-on-surface font-bold group">
+                        View Case Study
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="md:col-span-7 rounded-3xl overflow-hidden glass-card order-1 md:order-2 scroll-reveal w-full">
+                    <div class="video-container">
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1058706002?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bento Grid -->
+    <section class="py-16 md:py-32 px-6 md:px-margin-desktop bg-surface-container-lowest">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-bento-gap auto-rows-[300px]">
+                <div class="md:col-span-2 md:row-span-2 glass-card rounded-3xl overflow-hidden relative group cursor-pointer">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A high-contrast 3D abstract sculpture of chrome and glass shards floating in a dark void." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlBsLwSCedqAsIlf-n4a9UeBaF5k_rNB24nLzqhrNtM7fCW3gnE_y2EvTaB9e7Esy59lXyks1v8BebRf9AnfOI3GYchm5aiGdZOTMtGoLiNqWNamxCuvvN4_dNQc2caCH4Yh_gYy7fT7A1RkSoBt2TJsyqjTjdAZYgS7OGLGx04fPpfftUrQJ1-gN3RKbhb__F8ZFaJOGOE964IsS1PkB8u5xJhGX1Xn5n58oBTeTi69ta3lgsWQFklBhCzmgF447c6CSAF4uClI0" />
+                    <div class="absolute bottom-0 left-0 p-8 w-full bg-gradient-to-t from-background to-transparent">
+                        <h4 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface">Abstract Motion Series</h4>
+                        <p class="text-on-surface-variant">Exploration of physics and light</p>
+                    </div>
+                </div>
+                <div class="md:col-span-2 glass-card rounded-3xl overflow-hidden p-8 flex flex-col justify-end">
+                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A high-contrast 3D abstract sculpture of chrome and glass shards floating in a dark void." src="king.png" />
+                    <h4 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-on-surface mb-2">Web3 Visual Identity</h4>
+                    <p class="text-on-surface-variant">Motion branding for decentralized protocols.</p>
+                </div>
+                <div class="glass-card rounded-3xl overflow-hidden relative group">
+                    <img class="w-full h-full object-cover" data-alt="A clean, minimalist mobile interface design for a luxury banking app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIebtkucPbi_bsvPJDGTcHxP4szmcbwHj4pUmJwDUAipu7HeAj__oDAIjIbukZkHBiUuVwJa1iLZyg6S1Dn5gSq9rl7u2W4RC-zId44nLQJg4L5TsX6Aab5beR7OiRVzqcvM8oD1qeC8PgwCrzrUDYXwSqq7UAY4WKB_wnsMbyVsJ4LINhvVd8b2hiVbBHjeMdt2ja9u1uS2NVCdDzENQhsGvnd5VyjgL8ewKB5Xkr44BO-Lm6uy9NO224aCsOS_nro6iXsrBdCgA" />
+                </div>
+                <div class="glass-card rounded-3xl overflow-hidden p-8 flex items-center justify-center bg-secondary">
+                    <span class="material-symbols-outlined text-on-secondary text-display-lg" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+                </div>
+                <div class="md:col-span-2 glass-card rounded-3xl overflow-hidden relative h-[300px]">
+                    <div class="video-container h-full">
+                        <iframe class="w-full h-full" frameborder="0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAygkOw-UKgiBNGVCko5mayOUktI0AGfvgEtFtnZ06gYAnRsQkXMxKfjg0MsqygsFPlJbYPbOvt6hQyWv85dMQOpqIVF_vBlUgi0X1gsjL2_Vram95mSDn2yIZvHGPZt1OxeE4fYLVviRMyDy03Yhygcwb0ZzJFTaGNOxpkI6npAKuNRsY6zg2EkH6e9-qhPZZWn307X2CLb8yrJp4f3CInYCOZ_kFJTbQ6WoYRlBR1-9z2hO7rLy9hOUfdM80OWm4ZS3dDtHwB4Y0"></iframe>
+                    </div>
+                </div>
+                <div class="md:col-span-2 glass-card rounded-3xl p-8 flex flex-col justify-center text-center">
+                    <span class="text-display-lg md:text-display-2xl font-black text-secondary leading-none">30+</span>
+                    <span class="font-label-mono text-on-surface-variant uppercase mt-2">Projects Delivered in 2024</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Brands Hire Me (Timeline) -->
+    <section class="py-16 md:py-32 px-6 md:px-margin-desktop">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="font-display-lg text-headline-xl md:text-display-lg text-on-surface mb-12 md:mb-20 text-center">Engineered for Results</h2>
+            <div class="relative pl-8 md:pl-24 border-l border-white/10 space-y-16 md:space-y-24">
+                <div class="scroll-reveal">
+                    <div class="absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full bg-secondary shadow-[0_0_20px_#a3c9ff]"></div>
+                    <span class="font-label-mono text-secondary mb-2 block">01 / DISCOVERY</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-4">Deep Product Understanding</h3>
+                    <p class="text-on-surface-variant text-body-lg">We dive into your tech stack and USP. Motion isn't just decoration; it's the translation of your value prop into a visual language.</p>
+                </div>
+                <div class="scroll-reveal">
+                    <div class="absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full bg-white/20"></div>
+                    <span class="font-label-mono text-on-surface-variant mb-2 block">02 / STORYBOARDING</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-4">Strategic Storytelling</h3>
+                    <p class="text-on-surface-variant text-body-lg">Mapping out every frame to ensure attention is engineered exactly where it needs to be—on your Call to Action.</p>
+                </div>
+                <div class="scroll-reveal">
+                    <div class="absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full bg-white/20"></div>
+                    <span class="font-label-mono text-on-surface-variant mb-2 block">03 / PRODUCTION</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl mb-4">High-Fidelity Rendering</h3>
+                    <p class="text-on-surface-variant text-body-lg">Utilizing industry-standard 3D and 2D tools to create cinematic visuals that set you apart from competitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Numbers Section -->
+    <section class="py-16 md:py-32 bg-secondary text-on-secondary-fixed">
+        <div class="px-6 md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            <div>
+                <span class="font-display-lg text-headline-xl md:text-display-lg block mb-2">50M+</span>
+                <span class="font-label-mono opacity-60 uppercase text-xs md:text-sm">Views Generated</span>
+            </div>
+            <div>
+                <span class="font-display-lg text-headline-xl md:text-display-lg block mb-2">200+</span>
+                <span class="font-label-mono opacity-60 uppercase text-xs md:text-sm">Assets Created</span>
+            </div>
+            <div>
+                <span class="font-display-lg text-headline-xl md:text-display-lg block mb-2">30+</span>
+                <span class="font-label-mono opacity-60 uppercase text-xs md:text-sm">Global Brands</span>
+            </div>
+            <div>
+                <span class="font-display-lg text-headline-xl md:text-display-lg block mb-2">99%</span>
+                <span class="font-label-mono opacity-60 uppercase text-xs md:text-sm">Satisfaction Rate</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="py-16 md:py-32 px-6 md:px-margin-desktop">
+        <div class="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div class="relative h-[400px] md:h-[600px] rounded-3xl overflow-hidden glass-card w-full">
+            </div>
+            <div class="grid grid-cols-1 gap-12 w-full">
+                <div class="space-y-4">
+                    <span class="material-symbols-outlined text-secondary text-4xl">trending_up</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl">Conversion-Focused</h3>
+                    <p class="text-on-surface-variant text-body-lg">Every frame is designed to guide the viewer toward a conversion goal, not just to look pretty.</p>
+                </div>
+                <div class="space-y-4">
+                    <span class="material-symbols-outlined text-secondary text-4xl">auto_fix_high</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl">Attention Engineering</h3>
+                    <p class="text-on-surface-variant text-body-lg">Using cognitive psychology to maintain engagement through micro-movements and rhythm.</p>
+                </div>
+                <div class="space-y-4">
+                    <span class="material-symbols-outlined text-secondary text-4xl">bolt</span>
+                    <h3 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl">Performance First</h3>
+                    <p class="text-on-surface-variant text-body-lg">Optimized delivery for web and social to ensure zero friction in your loading speeds.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="py-24 md:py-48 px-6 md:px-margin-desktop text-center relative overflow-hidden" id="contact">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <!-- Adjusted display-2xl scaling down to display-lg on mobile for proper fitting -->
+            <h2 class="font-display-2xl text-display-lg md:text-display-2xl text-on-surface mb-12">Let's Build Something People Remember.</h2>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <a class="bg-primary text-on-primary-fixed font-bold text-body-lg px-8 md:px-12 py-4 md:py-6 rounded-2xl hover:scale-105 transition-all shadow-2xl shadow-primary/20 text-center w-full sm:w-auto" href="https://calendly.com/" target="_blank">Book Discovery Call</a>
+                <a class="flex items-center justify-center gap-4 text-on-surface font-bold text-body-lg px-8 md:px-12 py-4 md:py-6 rounded-2xl border border-white/20 hover:bg-white/5 transition-all w-full sm:w-auto" href="https://wa.me/" target="_blank">
+                    <span class="material-symbols-outlined">chat</span>
+                    WhatsApp Me
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="w-full px-6 md:px-margin-desktop py-12 md:py-20 flex flex-col gap-12 bg-background border-t border-outline-variant/20">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+            <div class="space-y-6">
+                <div class="font-display-lg text-headline-xl md:text-display-lg font-black text-on-surface opacity-10 leading-none">KINGSLEY<br />KELECHI</div>
+                <p class="text-on-surface-variant max-w-sm">Strategic motion designer for the next generation of digital giants. Based in Lagos, Working Worldwide.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 w-full md:w-auto">
+                <div class="flex flex-col gap-4">
+                    <span class="font-label-mono text-secondary uppercase">Sitemap</span>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#work">Work</a>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#services">Services</a>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#about">About</a>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#contact">Contact</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="font-label-mono text-secondary uppercase">Social</span>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Twitter (X)</a>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">LinkedIn</a>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Dribbble</a>
+                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Vimeo</a>
+                </div>
+            </div>
+        </div>
+        <div class="pt-8 md:pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+            <span class="text-on-surface-variant text-body-md opacity-60 text-center md:text-left">© 2026 Kingsley Kelechi. All rights reserved.</span>
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></div>
+                <span class="text-on-surface-variant font-label-mono"><p class="font-body-md text-body-md text-on-surface-variant">Designed by <a href="https://qorv.org" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors duration-300">QORV LTD</a></p></span>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Parallax 3D Effect for Hero
+        const mockup = document.getElementById('hero-mockup');
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            mockup.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+        });
+
+        // Scroll Reveal Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+
+        // Hover effect for links
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(4)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
