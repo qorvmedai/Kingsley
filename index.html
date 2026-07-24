@@ -5,6 +5,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Kingsley Kelechi | Kinetic Portfolio</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Official Vimeo API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <script id="tailwind-config">
@@ -165,10 +167,38 @@
             transition: transform 0.2s
         }
 
+        .video-container {
+            position: relative;
+        }
+
         .video-container iframe {
             width: 100%;
             height: 100%;
             aspect-ratio: 16/9
+        }
+
+        .vimeo-mute-btn {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            background: rgba(10, 20, 30, 0.6);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            z-index: 50;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .vimeo-mute-btn:hover {
+            background: rgba(10, 20, 30, 0.8);
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -251,7 +281,8 @@
             <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center w-full">
                 <div class="md:col-span-8 rounded-3xl overflow-hidden glass-card scroll-reveal w-full">
                     <div class="video-container">
-                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1202045433?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1202045433?autoplay=1&muted=1&loop=1&autopause=0"></iframe>
+                        <button class="vimeo-mute-btn">🔊 Unmute</button>
                     </div>
                 </div>
                 <div class="md:col-span-4 flex flex-col justify-center scroll-reveal">
@@ -270,7 +301,8 @@
                 </div>
                 <div class="md:col-span-8 rounded-3xl overflow-hidden glass-card order-1 md:order-2 scroll-reveal w-full">
                     <div class="video-container">
-                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1091721901?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1091721901?autoplay=1&muted=1&loop=1&autopause=0"></iframe>
+                        <button class="vimeo-mute-btn">🔊 Unmute</button>
                     </div>
                 </div>
             </div>
@@ -281,7 +313,8 @@
             <div class="grid md:grid-cols-12 gap-8 md:gap-12 items-center w-full">
                 <div class="md:col-span-8 rounded-3xl overflow-hidden glass-card scroll-reveal w-full">
                     <div class="video-container">
-                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1096552159?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1096552159?autoplay=1&muted=1&loop=1&autopause=0"></iframe>
+                        <button class="vimeo-mute-btn">🔊 Unmute</button>
                     </div>
                 </div>
                 <div class="md:col-span-4 flex flex-col justify-center scroll-reveal">
@@ -300,7 +333,8 @@
                 </div>
                 <div class="md:col-span-8 rounded-3xl overflow-hidden glass-card order-1 md:order-2 scroll-reveal w-full">
                     <div class="video-container">
-                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1058706002?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1058706002?autoplay=1&muted=1&loop=1&autopause=0"></iframe>
+                        <button class="vimeo-mute-btn">🔊 Unmute</button>
                     </div>
                 </div>
             </div>
@@ -312,7 +346,8 @@
                 <div class="md:col-span-8 rounded-3xl overflow-hidden glass-card scroll-reveal w-full">
                     <div class="video-container">
                         <!-- Using Vimeo ID 1202045433 as a placeholder for Video 5 to maintain the design concept -->
-                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1202045433?autoplay=1&muted=1&loop=1&background=1"></iframe>
+                        <iframe allow="autoplay; fullscreen" allowfullscreen="" frameborder="0" src="https://player.vimeo.com/video/1202045433?autoplay=1&muted=1&loop=1&autopause=0"></iframe>
+                        <button class="vimeo-mute-btn">🔊 Unmute</button>
                     </div>
                 </div>
                 <div class="md:col-span-4 flex flex-col justify-center scroll-reveal">
@@ -356,10 +391,26 @@
                 </div>
                 <div class="flex flex-col gap-4">
                     <span class="font-label-mono text-secondary uppercase">Social</span>
-                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Twitter (X)</a>
-                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">LinkedIn</a>
-                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Dribbble</a>
-                    <a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Vimeo</a>
+                    <a href="https://www.instagram.com/kingsleykelechi_?igsh=ZDZiYWl3ZnFuZXow"
+   target="_blank"
+   rel="noopener noreferrer">
+    Instagram
+</a>
+                    <a href="https://www.linkedin.com/in/kingsley-kelechi-617457260?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+   target="_blank"
+   rel="noopener noreferrer">
+    LinkedIn
+</a>
+                    <a href="https://dribbble.com/kingsleykelechi"
+   target="_blank"
+   rel="noopener noreferrer">
+    Dribbble
+</a>
+                    <a href="https://vimeo.com/kingsleykelechi"
+   target="_blank"
+   rel="noopener noreferrer">
+    Vimeo
+</a>
                 </div>
             </div>
         </div>
@@ -410,6 +461,39 @@
             });
             el.addEventListener('mouseleave', () => {
                 cursor.style.transform = 'scale(1)';
+            });
+        });
+
+        // Vimeo Mute/Unmute functionality for all videos
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoContainers = document.querySelectorAll('.video-container');
+            
+            videoContainers.forEach(container => {
+                const iframe = container.querySelector('iframe');
+                const muteBtn = container.querySelector('.vimeo-mute-btn');
+                
+                if (iframe && muteBtn) {
+                    const player = new Vimeo.Player(iframe);
+                    let isMuted = true;
+                    
+                    muteBtn.addEventListener('click', () => {
+                        if (isMuted) {
+                            player.setVolume(1).then(() => {
+                                muteBtn.textContent = '🔇 Mute';
+                                isMuted = false;
+                            }).catch(error => {
+                                console.error('Error unmuting video:', error);
+                            });
+                        } else {
+                            player.setVolume(0).then(() => {
+                                muteBtn.textContent = '🔊 Unmute';
+                                isMuted = true;
+                            }).catch(error => {
+                                console.error('Error muting video:', error);
+                            });
+                        }
+                    });
+                }
             });
         });
     </script>
